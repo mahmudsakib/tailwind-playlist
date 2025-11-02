@@ -2,12 +2,65 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tailwind Project</title>
     <link rel="stylesheet" href="./output/tailwind.css" />
   </head>
-  <body>
-    <div class="w-32 bg-black h-6 m-2 text-white">Hello sakib</div>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Navbar -->
+    <header class="bg-white shadow">
+      <div class="container mx-auto flex justify-between items-center p-4">
+        <h1 class="text-2xl font-bold text-blue-600">Tailwind Project</h1>
+        <nav class="space-x-4">
+          <a href="#" class="text-gray-600 hover:text-blue-600">Home</a>
+          <a href="#" class="text-gray-600 hover:text-blue-600">About</a>
+          <a href="#" class="text-gray-600 hover:text-blue-600">Services</a>
+          <a href="#" class="text-gray-600 hover:text-blue-600">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto text-center py-16">
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">
+        Welcome to Tailwind Project
+      </h2>
+      <p class="text-gray-600 mb-6">
+        A clean, responsive starter layout built with Tailwind CSS.
+      </p>
+      <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+        Get Started
+      </button>
+    </section>
+
+    <!-- Features -->
+    <section class="container mx-auto grid md:grid-cols-3 gap-6 py-10">
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2 text-blue-600">Fast Setup</h3>
+        <p class="text-gray-600">
+          Quickly build and customize with Tailwind's utility classes.
+        </p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2 text-blue-600">Responsive</h3>
+        <p class="text-gray-600">
+          Fully responsive out of the box for all devices and screen sizes.
+        </p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2 text-blue-600">Modern Design</h3>
+        <p class="text-gray-600">
+          Clean, minimal design with modern UI/UX practices.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow mt-10">
+      <div class="container mx-auto text-center py-4 text-gray-600">
+        © 2025 Tailwind Project. All rights reserved.
+      </div>
+    </footer>
   </body>
 </html>
+
