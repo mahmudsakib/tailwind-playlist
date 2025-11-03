@@ -3,64 +3,185 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tailwind Project</title>
+    <title>Sakib Mahmud | Software Developer Portfolio</title>
     <link rel="stylesheet" href="./output/tailwind.css" />
   </head>
   <body class="bg-gray-50 text-gray-800">
     <!-- Navbar -->
-    <header class="bg-white shadow">
+    <header class="bg-white shadow fixed w-full z-10 top-0">
       <div class="container mx-auto flex justify-between items-center p-4">
-        <h1 class="text-2xl font-bold text-blue-600">Tailwind Project</h1>
-        <nav class="space-x-4">
-          <a href="#" class="text-gray-600 hover:text-blue-600">Home</a>
-          <a href="#" class="text-gray-600 hover:text-blue-600">About</a>
-          <a href="#" class="text-gray-600 hover:text-blue-600">Services</a>
-          <a href="#" class="text-gray-600 hover:text-blue-600">Contact</a>
+        <h1 class="text-2xl font-bold text-blue-600">Sakib Mahmud</h1>
+        <nav class="space-x-6">
+          <a href="#home" class="text-gray-600 hover:text-blue-600">Home</a>
+          <a href="#about" class="text-gray-600 hover:text-blue-600">About</a>
+          <a href="#skills" class="text-gray-600 hover:text-blue-600">Skills</a>
+          <a href="#projects" class="text-gray-600 hover:text-blue-600">Projects</a>
+          <a href="#contact" class="text-gray-600 hover:text-blue-600">Contact</a>
         </nav>
       </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="container mx-auto text-center py-16">
-      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">
-        Welcome to Tailwind Project
+    <section id="home" class="container mx-auto text-center py-28">
+      <h2 class="text-5xl font-extrabold text-gray-900 mb-4">
+        Hi, I'm <span class="text-blue-600">Sakib Mahmud</span>
       </h2>
-      <p class="text-gray-600 mb-6">
-        A clean, responsive starter layout built with Tailwind CSS.
+      <p class="text-gray-600 text-lg mb-6">
+        Software Developer | UI/UX Designer | QA Engineer
       </p>
       <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
-        Get Started
+        View My Work
       </button>
     </section>
 
-    <!-- Features -->
-    <section class="container mx-auto grid md:grid-cols-3 gap-6 py-10">
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-2 text-blue-600">Fast Setup</h3>
-        <p class="text-gray-600">
-          Quickly build and customize with Tailwind's utility classes.
-        </p>
+    <!-- About Section -->
+    <section id="about" class="container mx-auto py-16">
+      <h3 class="text-3xl font-bold text-center text-blue-600 mb-8">About Me</h3>
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <img
+          src="https://via.placeholder.com/400x400"
+          alt="Sakib Mahmud"
+          class="rounded-xl shadow"
+        />
+        <div>
+          <h4 class="text-2xl font-semibold mb-3">A Passionate Software Engineer</h4>
+          <p class="text-gray-600 mb-4">
+            I’m a software developer based in Bangladesh, passionate about crafting
+            modern, efficient, and user-friendly applications. I specialize in web
+            development, UI/UX design, and software testing. I enjoy turning complex
+            problems into simple, beautiful, and intuitive solutions.
+          </p>
+          <p class="text-gray-600">
+            Beyond coding, I love mentoring others, exploring new technologies, and
+            improving digital experiences through creative design and innovation.
+          </p>
+        </div>
       </div>
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-2 text-blue-600">Responsive</h3>
-        <p class="text-gray-600">
-          Fully responsive out of the box for all devices and screen sizes.
-        </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="bg-white py-16">
+      <div class="container mx-auto">
+        <h3 class="text-3xl font-bold text-center text-blue-600 mb-10">Skills</h3>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h4 class="text-xl font-semibold mb-2">Frontend Development</h4>
+            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+              <div class="bg-blue-600 h-3 rounded-full w-11/12"></div>
+            </div>
+
+            <h4 class="text-xl font-semibold mb-2">Backend Development</h4>
+            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+              <div class="bg-blue-600 h-3 rounded-full w-10/12"></div>
+            </div>
+
+            <h4 class="text-xl font-semibold mb-2">UI/UX Design</h4>
+            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+              <div class="bg-blue-600 h-3 rounded-full w-9/12"></div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xl font-semibold mb-2">Quality Assurance</h4>
+            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+              <div class="bg-blue-600 h-3 rounded-full w-10/12"></div>
+            </div>
+
+            <h4 class="text-xl font-semibold mb-2">Project Management</h4>
+            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+              <div class="bg-blue-600 h-3 rounded-full w-8/12"></div>
+            </div>
+
+            <h4 class="text-xl font-semibold mb-2">Database (SQL / Firebase)</h4>
+            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+              <div class="bg-blue-600 h-3 rounded-full w-10/12"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold mb-2 text-blue-600">Modern Design</h3>
-        <p class="text-gray-600">
-          Clean, minimal design with modern UI/UX practices.
-        </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container mx-auto py-16">
+      <h3 class="text-3xl font-bold text-center text-blue-600 mb-10">
+        Featured Projects
+      </h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2 text-blue-600">MCQXpert</h4>
+          <p class="text-gray-600 mb-3">
+            An advanced MCQ platform allowing students to practice exams with multiple
+            modes and analytics dashboard.
+          </p>
+          <a href="#" class="text-blue-600 hover:underline">View Project →</a>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2 text-blue-600">MediSync</h4>
+          <p class="text-gray-600 mb-3">
+            Doctor-patient management system ensuring smooth communication and
+            appointment scheduling.
+          </p>
+          <a href="#" class="text-blue-600 hover:underline">View Project →</a>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2 text-blue-600">Gym Management</h4>
+          <p class="text-gray-600 mb-3">
+            A complete gym system with membership, shop, and package tracking features.
+          </p>
+          <a href="#" class="text-blue-600 hover:underline">View Project →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-white py-16">
+      <div class="container mx-auto">
+        <h3 class="text-3xl font-bold text-center text-blue-600 mb-8">Get in Touch</h3>
+        <form class="max-w-xl mx-auto bg-gray-50 p-6 rounded-xl shadow">
+          <div class="mb-4">
+            <label class="block text-gray-700 mb-2">Name</label>
+            <input
+              type="text"
+              class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-600 outline-none"
+              placeholder="Your Name"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 mb-2">Email</label>
+            <input
+              type="email"
+              class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-600 outline-none"
+              placeholder="Your Email"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 mb-2">Message</label>
+            <textarea
+              rows="4"
+              class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-600 outline-none"
+              placeholder="Your Message"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition w-full"
+          >
+            Send Message
+          </button>
+        </form>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-white shadow mt-10">
-      <div class="container mx-auto text-center py-4 text-gray-600">
-        © 2025 Tailwind Project. All rights reserved.
+      <div class="container mx-auto text-center py-6 text-gray-600">
+        <p>© 2025 Sakib Mahmud. All Rights Reserved.</p>
+        <div class="space-x-4 mt-2">
+          <a href="#" class="hover:text-blue-600">LinkedIn</a>
+          <a href="#" class="hover:text-blue-600">GitHub</a>
+          <a href="mailto:mahmudsakib17@gmail.com" class="hover:text-blue-600">Email</a>
+        </div>
       </div>
     </footer>
   </body>
 </html>
-
