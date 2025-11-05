@@ -1,187 +1,356 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sakib Mahmud | Software Developer Portfolio</title>
     <link rel="stylesheet" href="./output/tailwind.css" />
+    <style>
+      /* Extra small helpers while sticking to your base design (blue-600, rounded-lg buttons, etc.) */
+      /* Smooth reveal animation */
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 600ms ease, transform 600ms ease;
+      }
+      .reveal.show {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* Simple slider dots */
+      .dot { width: 10px; height: 10px; border-radius: 9999px; display:inline-block }
+
+      /* Keep focus outlines visible but subtle */
+      :focus { outline: 3px solid rgba(37,99,235,0.18); outline-offset: 2px; }
+
+      /* File preview thumbnails */
+      .thumb { width: 160px; height: 110px; object-fit: cover; border-radius: 8px; }
+
+      /* Small CSS animation for project cards */
+      .card-hover { transition: transform 250ms ease, box-shadow 250ms ease; }
+      .card-hover:hover { transform: translateY(-6px); }
+
+      /* slider container aspect ratio */
+      .slides { min-height: 180px; }
+    </style>
   </head>
   <body class="bg-gray-50 text-gray-800">
-    <!-- Navbar -->
-    <header class="bg-white shadow fixed w-full z-10 top-0">
-      <div class="container mx-auto flex justify-between items-center p-4">
+    <!-- Navbar (responsive) -->
+    <header class="bg-white shadow fixed w-full z-20 top-0">
+      <div class="container mx-auto flex items-center justify-between p-4">
         <h1 class="text-2xl font-bold text-blue-600">Sakib Mahmud</h1>
-        <nav class="space-x-6">
+
+        <button id="navToggle" class="md:hidden p-2 rounded-lg border border-gray-200">
+          <span class="sr-only">Open menu</span>
+          <!-- simple hamburger -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="#1e3a8a" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <nav id="nav" class="hidden md:flex space-x-6">
           <a href="#home" class="text-gray-600 hover:text-blue-600">Home</a>
           <a href="#about" class="text-gray-600 hover:text-blue-600">About</a>
           <a href="#skills" class="text-gray-600 hover:text-blue-600">Skills</a>
           <a href="#projects" class="text-gray-600 hover:text-blue-600">Projects</a>
+          <a href="#certificates" class="text-gray-600 hover:text-blue-600">Certificates</a>
           <a href="#contact" class="text-gray-600 hover:text-blue-600">Contact</a>
         </nav>
       </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100">
+        <div class="p-4 space-y-3">
+          <a href="#home" class="block text-gray-700">Home</a>
+          <a href="#about" class="block text-gray-700">About</a>
+          <a href="#skills" class="block text-gray-700">Skills</a>
+          <a href="#projects" class="block text-gray-700">Projects</a>
+          <a href="#certificates" class="block text-gray-700">Certificates</a>
+          <a href="#contact" class="block text-gray-700">Contact</a>
+        </div>
+      </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="container mx-auto text-center py-28">
-      <h2 class="text-5xl font-extrabold text-gray-900 mb-4">
-        Hi, I'm <span class="text-blue-600">Sakib Mahmud</span>
-      </h2>
-      <p class="text-gray-600 text-lg mb-6">
-        Software Developer | UI/UX Designer | QA Engineer
-      </p>
-      <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
-        View My Work
-      </button>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="container mx-auto py-16">
-      <h3 class="text-3xl font-bold text-center text-blue-600 mb-8">About Me</h3>
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <img
-          src="https://via.placeholder.com/400x400"
-          alt="Sakib Mahmud"
-          class="rounded-xl shadow"
-        />
-        <div>
-          <h4 class="text-2xl font-semibold mb-3">A Passionate Software Engineer</h4>
-          <p class="text-gray-600 mb-4">
-            I’m a software developer based in Bangladesh, passionate about crafting
-            modern, efficient, and user-friendly applications. I specialize in web
-            development, UI/UX design, and software testing. I enjoy turning complex
-            problems into simple, beautiful, and intuitive solutions.
-          </p>
-          <p class="text-gray-600">
-            Beyond coding, I love mentoring others, exploring new technologies, and
-            improving digital experiences through creative design and innovation.
-          </p>
+    <main class="pt-24">
+      <!-- Hero -->
+      <section id="home" class="container mx-auto text-center py-20 px-4">
+        <h2 class="text-5xl font-extrabold text-gray-900 mb-4">
+          Hi, I'm <span class="text-blue-600">Sakib Mahmud</span>
+        </h2>
+        <p class="text-gray-600 text-lg mb-6">Software Developer | UI/UX Designer | QA Engineer</p>
+        <div class="flex justify-center gap-4">
+          <a href="#projects" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">View My Work</a>
+          <a href="#certificates" class="border border-blue-600 text-blue-600 px-6 py-2 rounded-lg hover:bg-blue-50 transition">See Certifications</a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="bg-white py-16">
-      <div class="container mx-auto">
-        <h3 class="text-3xl font-bold text-center text-blue-600 mb-10">Skills</h3>
-        <div class="grid md:grid-cols-2 gap-8">
+      <!-- About -->
+      <section id="about" class="container mx-auto py-12 px-4 reveal">
+        <h3 class="text-3xl font-bold text-center text-blue-600 mb-8">About Me</h3>
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <img src="https://via.placeholder.com/520x520" alt="Sakib Mahmud" class="rounded-xl shadow mx-auto md:mx-0"/>
           <div>
-            <h4 class="text-xl font-semibold mb-2">Frontend Development</h4>
-            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
-              <div class="bg-blue-600 h-3 rounded-full w-11/12"></div>
-            </div>
-
-            <h4 class="text-xl font-semibold mb-2">Backend Development</h4>
-            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
-              <div class="bg-blue-600 h-3 rounded-full w-10/12"></div>
-            </div>
-
-            <h4 class="text-xl font-semibold mb-2">UI/UX Design</h4>
-            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
-              <div class="bg-blue-600 h-3 rounded-full w-9/12"></div>
-            </div>
+            <h4 class="text-2xl font-semibold mb-3">A Passionate Software Engineer</h4>
+            <p class="text-gray-600 mb-4">I’m a software developer based in Bangladesh, passionate about crafting modern, efficient, and user-friendly applications. I specialize in web development, UI/UX design, and software testing. I enjoy turning complex problems into simple, beautiful, and intuitive solutions.</p>
+            <p class="text-gray-600">Beyond coding, I love mentoring others, exploring new technologies, and improving digital experiences through creative design and innovation.</p>
           </div>
+        </div>
+      </section>
 
-          <div>
-            <h4 class="text-xl font-semibold mb-2">Quality Assurance</h4>
-            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
-              <div class="bg-blue-600 h-3 rounded-full w-10/12"></div>
+      <!-- Skills -->
+      <section id="skills" class="bg-white py-12">
+        <div class="container mx-auto px-4 reveal">
+          <h3 class="text-3xl font-bold text-center text-blue-600 mb-8">Skills</h3>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <Skill name="Frontend Development" level="w-11/12" />
             </div>
-
-            <h4 class="text-xl font-semibold mb-2">Project Management</h4>
-            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
-              <div class="bg-blue-600 h-3 rounded-full w-8/12"></div>
-            </div>
-
-            <h4 class="text-xl font-semibold mb-2">Database (SQL / Firebase)</h4>
-            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
-              <div class="bg-blue-600 h-3 rounded-full w-10/12"></div>
+            <div>
+              <Skill name="Quality Assurance" level="w-10/12" />
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="container mx-auto py-16">
-      <h3 class="text-3xl font-bold text-center text-blue-600 mb-10">
-        Featured Projects
-      </h3>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2 text-blue-600">MCQXpert</h4>
-          <p class="text-gray-600 mb-3">
-            An advanced MCQ platform allowing students to practice exams with multiple
-            modes and analytics dashboard.
-          </p>
-          <a href="#" class="text-blue-600 hover:underline">View Project →</a>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2 text-blue-600">MediSync</h4>
-          <p class="text-gray-600 mb-3">
-            Doctor-patient management system ensuring smooth communication and
-            appointment scheduling.
-          </p>
-          <a href="#" class="text-blue-600 hover:underline">View Project →</a>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2 text-blue-600">Gym Management</h4>
-          <p class="text-gray-600 mb-3">
-            A complete gym system with membership, shop, and package tracking features.
-          </p>
-          <a href="#" class="text-blue-600 hover:underline">View Project →</a>
-        </div>
-      </div>
-    </section>
+      <!-- Projects with simple slider -->
+      <section id="projects" class="container mx-auto py-12 px-4 reveal">
+        <h3 class="text-3xl font-bold text-center text-blue-600 mb-8">Featured Projects</h3>
 
-    <!-- Contact Section -->
-    <section id="contact" class="bg-white py-16">
-      <div class="container mx-auto">
-        <h3 class="text-3xl font-bold text-center text-blue-600 mb-8">Get in Touch</h3>
-        <form class="max-w-xl mx-auto bg-gray-50 p-6 rounded-xl shadow">
-          <div class="mb-4">
-            <label class="block text-gray-700 mb-2">Name</label>
-            <input
-              type="text"
-              class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-600 outline-none"
-              placeholder="Your Name"
-            />
-          </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 mb-2">Email</label>
-            <input
-              type="email"
-              class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-600 outline-none"
-              placeholder="Your Email"
-            />
-          </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 mb-2">Message</label>
-            <textarea
-              rows="4"
-              class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-600 outline-none"
-              placeholder="Your Message"
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition w-full"
-          >
-            Send Message
-          </button>
-        </form>
-      </div>
-    </section>
+        <div class="max-w-5xl mx-auto">
+          <div class="relative bg-white rounded-xl shadow p-6">
+            <!-- Slides -->
+            <div id="slides" class="slides overflow-hidden rounded-md">
+              <div class="slide flex gap-6 items-center">
+                <div class="w-2/5 hidden md:block">
+                  <img src="https://via.placeholder.com/480x280" alt="MCQXpert" class="rounded-lg" />
+                </div>
+                <div class="w-full md:w-3/5">
+                  <h4 class="text-xl font-semibold mb-2 text-blue-600">MCQXpert</h4>
+                  <p class="text-gray-600 mb-3">An advanced MCQ platform allowing students to practice exams with multiple modes and analytics dashboard.</p>
+                  <a href="#" class="text-blue-600 hover:underline">View Project →</a>
+                </div>
+              </div>
 
-    <!-- Footer -->
-    <footer class="bg-white shadow mt-10">
-      <div class="container mx-auto text-center py-6 text-gray-600">
-        <p>© 2025 Sakib Mahmud. All Rights Reserved.</p>
-        <div class="space-x-4 mt-2">
-          <a href="#" class="hover:text-blue-600">LinkedIn</a>
-          <a href="#" class="hover:text-blue-600">GitHub</a>
-          <a href="mailto:mahmudsakib17@gmail.com" class="hover:text-blue-600">Email</a>
+              <div class="slide hidden flex gap-6 items-center">
+                <div class="w-2/5 hidden md:block">
+                  <img src="https://via.placeholder.com/480x280" alt="MediSync" class="rounded-lg" />
+                </div>
+                <div class="w-full md:w-3/5">
+                  <h4 class="text-xl font-semibold mb-2 text-blue-600">MediSync</h4>
+                  <p class="text-gray-600 mb-3">Doctor-patient management system ensuring smooth communication and appointment scheduling.</p>
+                  <a href="#" class="text-blue-600 hover:underline">View Project →</a>
+                </div>
+              </div>
+
+              <div class="slide hidden flex gap-6 items-center">
+                <div class="w-2/5 hidden md:block">
+                  <img src="https://via.placeholder.com/480x280" alt="Gym Management" class="rounded-lg" />
+                </div>
+                <div class="w-full md:w-3/5">
+                  <h4 class="text-xl font-semibold mb-2 text-blue-600">Gym Management</h4>
+                  <p class="text-gray-600 mb-3">A complete gym system with membership, shop, and package tracking features.</p>
+                  <a href="#" class="text-blue-600 hover:underline">View Project →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex items-center justify-between mt-6">
+              <div>
+                <button id="prev" class="px-4 py-1 rounded-lg border border-gray-200">Prev</button>
+                <button id="next" class="px-4 py-1 rounded-lg border border-gray-200 ml-2">Next</button>
+              </div>
+
+              <div id="dots" class="flex gap-2 items-center"></div>
+            </div>
+          </div>
         </div>
-      </div>
-    </footer>
+
+        <!-- Project grid fallback (small screens) -->
+        <div class="grid md:grid-cols-3 gap-6 mt-8">
+          <div class="bg-white p-6 rounded-xl shadow card-hover">
+            <h4 class="text-xl font-semibold mb-2 text-blue-600">MCQXpert</h4>
+            <p class="text-gray-600 mb-3">An advanced MCQ platform with multiple modes and analytics dashboard.</p>
+            <a href="#" class="text-blue-600 hover:underline">View Project →</a>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow card-hover">
+            <h4 class="text-xl font-semibold mb-2 text-blue-600">MediSync</h4>
+            <p class="text-gray-600 mb-3">Doctor-patient management system for appointments and messaging.</p>
+            <a href="#" class="text-blue-600 hover:underline">View Project →</a>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow card-hover">
+            <h4 class="text-xl font-semibold mb-2 text-blue-600">Gym Management</h4>
+            <p class="text-gray-600 mb-3">Gym system with membership and shop features.</p>
+            <a href="#" class="text-blue-600 hover:underline">View Project →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certificates: upload & preview -->
+      <section id="certificates" class="container mx-auto py-12 px-4 reveal">
+        <h3 class="text-3xl font-bold text-center text-blue-600 mb-6">Certifications</h3>
+
+        <div class="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow">
+          <p class="text-gray-600 mb-4">Upload image or PDF certificates. They will be previewed below for easy sharing.</p>
+
+          <form id="certForm" class="space-y-4">
+            <label class="block">
+              <span class="sr-only">Choose files</span>
+              <input id="fileInput" type="file" accept="image/*,.pdf" multiple class="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-600" />
+            </label>
+            <div class="flex gap-2">
+              <button type="button" id="clearAll" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Clear All</button>
+              <button type="button" id="downloadZip" class="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition">Download Selected</button>
+            </div>
+          </form>
+
+          <div id="preview" class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="bg-white py-12 reveal">
+        <div class="container mx-auto px-4">
+          <h3 class="text-3xl font-bold text-center text-blue-600 mb-8">Get in Touch</h3>
+          <form class="max-w-xl mx-auto bg-gray-50 p-6 rounded-xl shadow">
+            <div class="mb-4">
+              <label class="block text-gray-700 mb-2">Name</label>
+              <input type="text" class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-600 outline-none" placeholder="Your Name" />
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700 mb-2">Email</label>
+              <input type="email" class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-600 outline-none" placeholder="Your Email" />
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700 mb-2">Message</label>
+              <textarea rows="4" class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-600 outline-none" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition w-full">Send Message</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-white shadow mt-10">
+        <div class="container mx-auto text-center py-6 text-gray-600">
+          <p>© 2025 Sakib Mahmud. All Rights Reserved.</p>
+          <div class="space-x-4 mt-2">
+            <a href="#" class="hover:text-blue-600">LinkedIn</a>
+            <a href="#" class="hover:text-blue-600">GitHub</a>
+            <a href="mailto:mahmudsakib17@gmail.com" class="hover:text-blue-600">Email</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      // Simple reveal on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add('show');
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // Mobile nav toggle
+      const navToggle = document.getElementById('navToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      navToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Simple slider implementation
+      (function(){
+        const slidesWrap = document.getElementById('slides');
+        const slides = Array.from(slidesWrap.querySelectorAll('.slide'));
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+        const dotsEl = document.getElementById('dots');
+        let index = 0;
+        let timer = null;
+
+        function show(i){
+          slides.forEach((s, idx) => s.classList.toggle('hidden', idx !== i));
+          dotsEl.querySelectorAll('.dot').forEach((d, idx) => d.classList.toggle('bg-blue-600', idx === i));
+          index = i;
+        }
+
+        function createDots(){
+          slides.forEach((_, idx) => {
+            const d = document.createElement('span');
+            d.className = 'dot bg-gray-300';
+            d.title = 'Go to slide ' + (idx+1);
+            d.addEventListener('click', () => { resetTimer(); show(idx); });
+            dotsEl.appendChild(d);
+          });
+        }
+
+        function nextSlide(){ show((index+1) % slides.length); }
+        function prevSlide(){ show((index-1 + slides.length) % slides.length); }
+
+        function resetTimer(){
+          if(timer) clearInterval(timer);
+          timer = setInterval(nextSlide, 5500);
+        }
+
+        createDots();
+        show(0);
+        prev.addEventListener('click', () => { prevSlide(); resetTimer(); });
+        next.addEventListener('click', () => { nextSlide(); resetTimer(); });
+        resetTimer();
+      })();
+
+      // Certificate upload preview (images + PDF icons)
+      (function(){
+        const input = document.getElementById('fileInput');
+        const preview = document.getElementById('preview');
+        const clearAll = document.getElementById('clearAll');
+
+        function renderFile(file){
+          const wrap = document.createElement('div');
+          wrap.className = 'bg-gray-50 p-3 rounded-lg flex flex-col items-start gap-2';
+
+          if(file.type === 'application/pdf'){
+            const icon = document.createElement('div');
+            icon.className = 'w-full flex items-center justify-between';
+            icon.innerHTML = `<div class=\"flex items-center gap-3\"><svg width=\"36\" height=\"36\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z\" stroke=\"#2563eb\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><div><div class=\"text-gray-700 font-medium\">${file.name}</div><div class=\"text-sm text-gray-500\">PDF document</div></div></div><div><button class=\"text-sm text-blue-600 hover:underline removeBtn\">Remove</button></div>`;
+            wrap.appendChild(icon);
+          } else if (file.type.startsWith('image/')){
+            const img = document.createElement('img');
+            img.className = 'thumb';
+            img.alt = file.name;
+            const reader = new FileReader();
+            reader.onload = (e) => img.src = e.target.result;
+            reader.readAsDataURL(file);
+            wrap.appendChild(img);
+            const info = document.createElement('div');
+            info.className = 'w-full flex items-center justify-between';
+            info.innerHTML = `<div><div class=\"text-gray-700 font-medium\">${file.name}</div><div class=\"text-sm text-gray-500\">Image file</div></div><div><button class=\"text-sm text-blue-600 hover:underline removeBtn\">Remove</button></div>`;
+            wrap.appendChild(info);
+          } else {
+            const p = document.createElement('div');
+            p.textContent = file.name;
+            wrap.appendChild(p);
+          }
+
+          // remove handler
+          wrap.querySelectorAll('.removeBtn').forEach(btn => btn.addEventListener('click', () => wrap.remove()));
+
+          preview.appendChild(wrap);
+        }
+
+        input.addEventListener('change', (e) => {
+          const files = Array.from(e.target.files);
+          files.forEach(renderFile);
+        });
+
+        clearAll.addEventListener('click', () => { preview.innerHTML = ''; input.value = ''; });
+      })();
+
+      // small template helper used above in HTML (not required, but kept for readability)
+      // Because this is a single-file HTML we used a tiny placeholder for the Skill component name above.
+      // No JS required for it — the markup is already rendered in the static HTML.
+    </script>
   </body>
 </html>
