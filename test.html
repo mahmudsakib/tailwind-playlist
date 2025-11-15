@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gym / SaaS Landing — Tailwind Template</title>
+
+  <!-- QUICK START: Tailwind Play CDN (good for prototypes).
+       For production with Vite, replace this with your compiled CSS. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional: customize Tailwind (only works with the CDN config) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0ea5e9',   // sky-500
+            accent: '#2563eb',    // blue-600
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* small visual polish for code blocks and form focus */
+    .form-input:focus { outline: none; box-shadow: 0 0 0 4px rgba(14,165,233,0.12); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+  <!-- NAVBAR -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-gradient-to-tr from-primary to-accent rounded-lg flex items-center justify-center text-white font-bold">TT</div>
+          <span class="text-lg font-semibold">TechGym</span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a class="hover:text-accent" href="#features">Features</a>
+          <a class="hover:text-accent" href="#pricing">Pricing</a>
+          <a class="hover:text-accent" href="#contact">Contact</a>
+          <a class="ml-4 px-4 py-2 rounded-md border border-transparent bg-primary text-white hover:bg-accent" href="#">Get Started</a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button id="mobileBtn" aria-label="Open menu" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+            <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-100">
+      <div class="px-4 pt-4 pb-6 space-y-3">
+        <a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#features">Features</a>
+        <a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#pricing">Pricing</a>
+        <a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#contact">Contact</a>
+        <a class="block px-3 py-2 rounded-md bg-primary text-white text-center" href="#">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="bg-gradient-to-b from-white to-gray-50">
+      <div class="max-w-7xl mx-auto px-4 py-14 sm:py-20 lg:py-28">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900">
+              Manage memberships, bookings, and leads — all in one dashboard
+            </h1>
+            <p class="mt-4 text-lg text-gray-600 max-w-xl">
+              Powerful, easy-to-use gym & fitness management system. Membership upgrades, payments, bookings, and integrated lead capture — ready for your team.
+            </p>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <a href="#pricing" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-primary text-white font-medium hover:bg-accent">Start Free Trial</a>
+              <a href="#features" class="inline-flex items-center justify-center px-6 py-3 rounded-md border border-gray-200 text-gray-700 bg-white shadow-sm hover:shadow-md">View Features</a>
+            </div>
+
+            <div class="mt-6 text-sm text-gray-500">
+              <span class="inline-flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L9 14.414 5.293 10.707a1 1 0 011.414-1.414L9 11.586l6.293-6.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>14-day free trial · No credit card required</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Hero card -->
+          <div class="relative">
+            <div class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 lg:p-10">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-gradient-to-tr from-primary to-accent rounded-lg flex items-center justify-center text-white font-bold">M</div>
+                <div>
+                  <h3 class="text-lg font-semibold">Member: Rahim</h3>
+                  <p class="text-sm text-gray-500">Active plan: <span class="font-medium">Monthly</span></p>
+                </div>
+              </div>
+
+              <div class="mt-6 grid grid-cols-2 gap-4">
+                <div class="p-3 bg-gray-50 rounded-lg text-center">
+                  <p class="text-sm text-gray-500">Remaining</p>
+                  <p class="mt-1 text-xl font-semibold">10 days</p>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-lg text-center">
+                  <p class="text-sm text-gray-500">Next Billing</p>
+                  <p class="mt-1 text-xl font-semibold">Dec 01, 2025</p>
+                </div>
+              </div>
+
+              <div class="mt-6 flex gap-3">
+                <button class="flex-1 px-4 py-2 rounded-md border border-gray-200 bg-white hover:shadow">View Details</button>
+                <button class="px-4 py-2 rounded-md bg-primary text-white hover:bg-accent">Upgrade</button>
+              </div>
+            </div>
+
+            <div class="absolute -bottom-6 left-6 w-64 bg-gradient-to-r from-white to-gray-50 rounded-lg blur-sm opacity-40 h-20"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="max-w-7xl mx-auto px-4 py-12 sm:py-16">
+      <h2 class="text-2xl font-bold text-gray-900 text-center">Core Features</h2>
+      <p class="mt-2 text-center text-gray-600 max-w-2xl mx-auto">Everything you need to run your gym smoothly — bookings, membership management, leads and payments.</p>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="p-5 bg-white rounded-lg shadow-sm">
+          <h3 class="font-semibold">Membership Management</h3>
+          <p class="mt-2 text-sm text-gray-500">Flexible upgrades, prorations, and registration fee handling.</p>
+        </article>
+
+        <article class="p-5 bg-white rounded-lg shadow-sm">
+          <h3 class="font-semibold">Booking & Scheduling</h3>
+          <p class="mt-2 text-sm text-gray-500">Accept bookings with role-based permissions and manage trainer schedules.</p>
+        </article>
+
+        <article class="p-5 bg-white rounded-lg shadow-sm">
+          <h3 class="font-semibold">Lead Capture</h3>
+          <p class="mt-2 text-sm text-gray-500">Meta Lead Ads integration (Zapier, Make or direct API) to push leads to your website.</p>
+        </article>
+
+        <article class="p-5 bg-white rounded-lg shadow-sm">
+          <h3 class="font-semibold">Reports & Audit</h3>
+          <p class="mt-2 text-sm text-gray-500">Sales, commission, shift close and refund reports with audit logs.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-12 sm:py-16">
+        <h2 class="text-2xl font-bold text-gray-900 text-center">Pricing</h2>
+        <p class="mt-2 text-center text-gray-600 max-w-2xl mx-auto">Simple transparent pricing for single gyms and chains.</p>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 border rounded-xl shadow-sm">
+            <div class="text-lg font-semibold">Starter</div>
+            <div class="mt-2 text-3xl font-extrabold">৳ 2,500 <span class="text-base font-medium text-gray-500">/mo</span></div>
+            <ul class="mt-4 space-y-2 text-sm text-gray-600">
+              <li>Up to 200 members</li>
+              <li>Bookings & basic reports</li>
+              <li>Email support</li>
+            </ul>
+            <a href="#" class="mt-6 inline-block w-full text-center px-4 py-2 rounded-md bg-primary text-white">Get Started</a>
+          </div>
+
+          <div class="p-6 border-2 border-accent rounded-xl shadow-lg transform scale-105">
+            <div class="text-lg font-semibold">Pro</div>
+            <div class="mt-2 text-3xl font-extrabold">৳ 6,000 <span class="text-base font-medium text-gray-500">/mo</span></div>
+            <ul class="mt-4 space-y-2 text-sm text-gray-600">
+              <li>Unlimited members</li>
+              <li>Lead integrations & automation</li>
+              <li>Priority support</li>
+            </ul>
+            <a href="#" class="mt-6 inline-block w-full text-center px-4 py-2 rounded-md bg-black text-white">Choose Pro</a>
+          </div>
+
+          <div class="p-6 border rounded-xl shadow-sm">
+            <div class="text-lg font-semibold">Enterprise</div>
+            <div class="mt-2 text-3xl font-extrabold">Custom</div>
+            <ul class="mt-4 space-y-2 text-sm text-gray-600">
+              <li>Multi-branch support</li>
+              <li>Single sign-on, integrations</li>
+              <li>Dedicated success manager</li>
+            </ul>
+            <a href="#" class="mt-6 inline-block w-full text-center px-4 py-2 rounded-md border border-gray-800 text-gray-800">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 py-12 sm:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-2xl font-bold">Get in touch</h2>
+          <p class="mt-2 text-gray-600">Have questions or need a demo? Send us a message and we'll respond within one business day.</p>
+
+          <dl class="mt-6 space-y-4 text-sm text-gray-600">
+            <div>
+              <dt class="font-medium">Email</dt>
+              <dd>support@techgym.example</dd>
+            </div>
+            <div>
+              <dt class="font-medium">Phone</dt>
+              <dd>+880 1X XXXX XXXX</dd>
+            </div>
+            <div>
+              <dt class="font-medium">Address</dt>
+              <dd>Dhaka, Bangladesh</dd>
+            </div>
+          </dl>
+        </div>
+
+        <form class="bg-white p-6 rounded-xl shadow-sm" onsubmit="submitContact(event)">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input id="firstName" class="form-input p-3 border rounded-md" placeholder="First name" required />
+            <input id="lastName" class="form-input p-3 border rounded-md" placeholder="Last name" />
+            <input id="email" type="email" class="form-input p-3 border rounded-md col-span-1 sm:col-span-2" placeholder="Email" required />
+            <input id="phone" class="form-input p-3 border rounded-md col-span-1 sm:col-span-2" placeholder="Phone" />
+          </div>
+
+          <textarea id="message" class="form-input mt-4 p-3 border rounded-md w-full" rows="4" placeholder="Message (optional)"></textarea>
+
+          <div class="mt-4 flex items-center justify-between gap-4">
+            <button type="submit" class="px-5 py-2 rounded-md bg-primary text-white">Send Message</button>
+            <div id="contactStatus" class="text-sm text-gray-500"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t mt-12">
+    <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-gray-600">© <span id="year"></span> TechGym. All rights reserved.</p>
+      <div class="flex items-center gap-3 text-sm text-gray-600">
+        <a href="#" class="hover:text-accent">Privacy</a>
+        <a href="#" class="hover:text-accent">Terms</a>
+        <a href="#" class="hover:text-accent">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn && mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Contact form (demo)
+    function submitContact(e) {
+      e.preventDefault();
+      const status = document.getElementById('contactStatus');
+      status.textContent = 'Sending...';
+      // Simulate async submission
+      setTimeout(() => {
+        status.textContent = 'Message sent. We will contact you soon.';
+        document.getElementById('firstName').value = '';
+        document.getElementById('lastName').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('message').value = '';
+      }, 900);
+    }
+
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

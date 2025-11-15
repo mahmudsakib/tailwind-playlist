@@ -4,12 +4,15 @@
   "description": "Tailwind CSS Playlist lessons by Learn with Sumit",
   "main": "index.js",
   "scripts": {
-    "build": "tailwindcss -i ./src/tailwind.css -o ./output/tailwind.css -w"
+    "build": "tailwindcss -i ./src/tailwind.css -o ./output/tailwind.css -w",
+    "dev": "concurrently \"npm run build\" \"live-server --port=3000\""
   },
   "keywords": [],
   "author": "Learn with Sumit",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^9.2.1",
+    "live-server": "^1.2.2",
     "tailwindcss": "^2.2.17"
   }
 }
